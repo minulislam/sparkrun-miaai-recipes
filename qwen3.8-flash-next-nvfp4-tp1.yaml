@@ -2,7 +2,7 @@
 # Source: https://github.com/MiaAI-Lab/Qwen3.8-Flash-Next-Single-DGX-Spark
 model: dealignai/Qwen3.8-Flash-Next-ABLITERATED-NVFP4
 runtime: vllm
-container: ghcr.io/spark-arena/dgx-vllm-eugr-nightly-b12x:20260926
+container: ghcr.io/spark-arena/dgx-vllm-eugr-nightly:20260927
 min_nodes: 1
 max_nodes: 1
 metadata:
