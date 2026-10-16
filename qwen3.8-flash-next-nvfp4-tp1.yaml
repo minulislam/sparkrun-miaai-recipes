@@ -1,11 +1,12 @@
 # sparkrun recipe: Qwen3.8-Flash-Next NVFP4 (Abliterated) on single DGX Spark (TP=1)
 # Source: https://github.com/MiaAI-Lab/Qwen3.8-Flash-Next-Single-DGX-Spark
-model: drowzeys/keys-Qwen3.8-flash-next-ablit-Mia-Single-Spark-only
+model: dealignai/Qwen3.8-Flash-Next-ABLITERATED-NVFP4
 runtime: vllm
+container: ghcr.io/spark-arena/dgx-vllm-eugr-nightly-b12x:20260926
 min_nodes: 1
 max_nodes: 1
 metadata:
-  description: "Qwen3.8-Flash-Next Abliterated NVFP4 (gated Keys checkpoint) on single DGX Spark — MTP speculative draft, 256k context"
+  description: "Qwen3.8-Flash-Next Abliterated NVFP4 on single DGX Spark — MTP speculative draft, 256k context"
   category: general
   model_params: 8000000000
   model_dtype: nvfp4
@@ -15,7 +16,7 @@ metadata:
 defaults:
   port: 8888
   tensor_parallel: 1
-  gpu_memory_utilization: 0.9
+  gpu_memory_utilization: 0.8
   max_model_len: 262144
   enforce_eager: false
 env:
