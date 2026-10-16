@@ -1,0 +1,25 @@
+# sparkrun recipe: GLM-5.3 Flash EXL3 (Abliterated) on 2x DGX Spark (TP=2)
+# Source: https://github.com/MiaAI-Lab/GLM-5.3-Flash-EXL3-2x-DGX-Sparks
+model: bullerwins/GLM-5.3-Flash-exl3-4bpw-ablit
+model_revision: 14858211ed81d7fa773f8a0db02f38f36d230252
+runtime: vllm
+container: ghcr.io/miaai-lab/glm-5.3-flash-2x-dgx-sparks:exl3
+min_nodes: 2
+max_nodes: 2
+metadata:
+  description: "GLM-5.3 Flash EXL3 4bpw Abliterated on 2x DGX Spark — multimodal, Ray TP=2, uncensored o_proj"
+  category: multimodal
+  model_params: 92000000000
+  model_dtype: exl3
+  quantization: exl3
+  quant_bits: 4
+defaults:
+  port: 8888
+  tensor_parallel: 2
+  gpu_memory_utilization: 0.9
+  max_model_len: 850000
+  enforce_eager: false
+env:
+  HF_TOKEN: "${HF_TOKEN:-}"
+  GLM53_MODEL_PRESET: "abliterated"
+  ABLIT: "1"

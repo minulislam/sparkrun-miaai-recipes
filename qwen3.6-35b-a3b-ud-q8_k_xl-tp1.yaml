@@ -1,0 +1,19 @@
+# sparkrun recipe: Qwen3.6-35B-A3B UD-Q8_K_XL GGUF via llama-server on single DGX Spark (TP=1)
+# Source: https://github.com/MiaAI-Lab/Qwen3.6-35B-A3B-UD-Q8_K_XL_DGX-Spark-Recipe
+# Note: Uses llama-server (llama.cpp). Model must be pre-downloaded and placed locally.
+# Set model to the absolute path of the GGUF file on your NFS/shared storage.
+model: /path/to/your/Qwen3.6-35B-A3B-UD-Q8_K_XL-Q8_K_XL.gguf
+runtime: llama-cpp
+min_nodes: 1
+max_nodes: 1
+metadata:
+  description: "Qwen3.6-35B-A3B UD-Q8_K_XL GGUF via llama-server on DGX Spark — llama-cpp, local GGUF weights required"
+  category: general
+  model_params: 35000000000
+  model_dtype: int8
+  quantization: gguf_q8_k_xl
+  quant_bits: 8
+defaults:
+  port: 8888
+  tensor_parallel: 1
+  n_gpu_layers: 999

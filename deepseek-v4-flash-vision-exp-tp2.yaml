@@ -1,0 +1,24 @@
+# sparkrun recipe: DeepSeek-V4-Flash Vision-Exp DSpark (Abliterated) on 2x DGX Spark (TP=2)
+# Source: https://github.com/MiaAI-Lab/DeepSeek-v4-Flash-DSpark-2x-DGX-Spark
+model: drowzeys/keys-DeepSeekV4Flash-Vision-EXP-ablit
+runtime: vllm
+container: ghcr.io/anemll/dspark-vllm-gx10:0.1.1
+min_nodes: 2
+max_nodes: 2
+metadata:
+  description: "DeepSeek-V4-Flash Vision-Exp Abliterated with DSpark on 2x DGX Spark — gated Keys ablit checkpoint, 1M context, nvfp4_ds_mla KV"
+  category: multimodal
+  model_params: 236000000000
+  model_dtype: nvfp4
+  kv_dtype: nvfp4_ds_mla
+  quantization: nvfp4
+  quant_bits: 4
+defaults:
+  port: 8888
+  tensor_parallel: 2
+  gpu_memory_utilization: 0.9
+  max_model_len: 1048576
+  enforce_eager: false
+env:
+  HF_TOKEN: "${HF_TOKEN:-}"
+  ABLITERATED: "1"
