@@ -1,8 +1,8 @@
 # sparkrun recipe: DeepSeek-V4-Flash 0731 EXL3 (Abliterated) on single DGX Spark (TP=1)
 # Source: https://github.com/MiaAI-Lab/DeepSeek-v4-Flash-One-DGX-Spark
 model: 0xSero/deepseek-v4-flash-0731-spark
-model_revision: 22f28d32b9b29b4352eaa380ff8c2c170b2847ab
-runtime: exllamav3
+runtime: vllm
+container: ghcr.io/0xsero/deepseek-v4-flash-0731-spark-sparkinfer:latest
 min_nodes: 1
 max_nodes: 1
 metadata:
